@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.2" 
+         version="2.0" 
+         xmlns="http://pear.php.net/dtd/package-2.0" 
+         xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+                             http://pear.php.net/dtd/tasks-1.0.xsd
+                             http://pear.php.net/dtd/package-2.0
+                             http://pear.php.net/dtd/package-2.0.xsd">
+    <name>DB_Virtual</name>
+    <channel>pear.joestump.net</channel>
+    <summary>DB load balancing package</summary>
+    <description>DB_Virtual allows you to set up a single master and N nodes to balance traffic across multiple DB servers. Compatible with PEAR DB's API.</description>
+    <lead>
+        <name>Joe Stump</name>
+        <user>jstump</user>
+        <email>joe@joestump.net</email>
+        <active>yes</active>
+    </lead>
+    <date>2006-11-22</date>
+    <time>15:53:42</time>
+    <version>
+        <release>0.1.3</release>
+        <api>0.1.0</api>
+    </version>
+    <stability>
+        <release>alpha</release>
+        <api>alpha</api>
+    </stability>
+    <license uri="http://www.opensource.org/licenses/lgpl-license.php">GNU Lesser General Public License v2.1</license>
+    <notes><![CDATA[
+        * Added support for DB::affectedRows()
+    ]]></notes>
+    <contents>
+        <dir name="/">
+            <file baseinstalldir="DB" 
+                  name="Virtual.php" 
+                  role="php" />
+            <dir name="Virtual">
+                <dir name="Cache">
+                    <file baseinstalldir="DB"
+                          name="Interface.php"
+                          role="php" />
+                     <file baseinstalldir="DB"
+                          name="Basic.php"
+                          role="php" />
+                </dir> 
+            </dir>
+            <dir name="examples">
+                <file baseinstalldir="doc/DB_Virtual" 
+                      name="test.php"                       
+                      role="doc" />
+            </dir>
+        </dir> 
+    </contents>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.0.0</min>
+            </php>
+            <pearinstaller>
+                <min>1.4.0b1</min>
+            </pearinstaller>
+            <package>
+                <name>DB</name>
+                <channel>pear.php.net</channel>
+                <min>1.7.6</min>
+            </package>
+        </required>
+        <optional>
+            <package>
+                <name>System_Folders</name>
+                <channel>pear.php.net</channel>
+                <min>0.1.6</min>
+            </package>
+            <package>
+                <name>Cache_Lite</name>
+                <channel>pear.php.net</channel>
+                <min>1.7.0</min>
+            </package>
+        </optional>
+    </dependencies>
+    <phprelease />
+    <changelog>
+        <release>
+            <version>
+                <release>0.1.2</release>
+                <api>0.1.0</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Added support for DB::getListOf()
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-06-01</date>
+            <time>09:25:42</time>
+            <version>
+                <release>0.1.1</release>
+                <api>0.1.0</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Fixed bug where running disconnect() would throw errors
+                * Fixed paths in package.xml
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-06-01</date>
+            <time>09:25:42</time>
+            <version>
+                <release>0.1.0</release>
+                <api>0.1.0</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Moved to a cache handler setup for caching    
+                * Added DB_Virtual::accept() 
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-06-01</date>
+            <time>09:51:14</time>
+            <version>
+                <release>0.0.8</release>
+                <api>0.0.8</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * If null is passed as the $fetchmode DB_Virtual will pass DB_FETCHMODE_DEFAULT to all get functions
+                * Made DB_Virtual::$cacheOptions public
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-03-03</date>
+            <time>09:25:42</time>
+            <version>
+                <release>0.0.7</release>
+                <api>0.0.7</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Fixed a bug in DB_Virtual::autoCommit() that wasn't passing $onoff to the master's autoCommit()
+                * Added DB_Virtual::queryMaster() so you can send queries directly to the master
+                * Added DB_VIRTUAL_MASTER, DB_VIRTUAL_READ, DB_VIRTUAL_WRITE and DB_VIRTUAL_CACHE as meta data information for the various queries
+                * Added caching via Cache_Lite
+                * Unset nodes from the nodes array when the connection fails
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-02-28</date>
+            <time>14:45:42</time>
+            <version>
+                <release>0.0.6</release>
+                <api>0.0.6</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Fixed a bug with last_query and getOne(), getAll(), etc.
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-02-28</date>
+            <time>09:08:42</time>
+            <version>
+                <release>0.0.5</release>
+                <api>0.0.5</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Fixed a possible divide by zero error
+                * Added check for weights less than zero
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-02-23</date>
+            <time>12:06:42</time>
+            <version>
+                <release>0.0.4</release>
+                <api>0.0.4</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Added support for N nodes with the same weight
+                * Added test.php in examples directory
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-02-23</date>
+            <time>12:06:42</time>
+            <version>
+                <release>0.0.3</release>
+                <api>0.0.3</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Use DB::parseDSN() and $dsn['hostspec'] instead of string DSN's
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-02-22</date>
+            <time>16:36:42</time>
+            <version>
+                <release>0.0.2</release>
+                <api>0.0.2</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Added __get() and __set() for getting and setting member variables
+                * Added DB_Virtual::$lastNode for last_query compatability
+            ]]></notes>
+        </release>
+        <release>
+            <date>2006-02-22</date>
+            <time>16:36:42</time>
+            <version>
+                <release>0.0.1</release>
+                <api>0.0.1</api>
+            </version>
+            <stability>
+                <release>alpha</release>
+                <api>alpha</api>
+            </stability>
+            <license uri="http://www.opensource.org/licenses/php.php">PHP License v3.0</license>
+            <notes><![CDATA[
+                * Initial release
+            ]]></notes>
+        </release>
+    </changelog>
+</package>

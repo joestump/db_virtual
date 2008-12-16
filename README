@@ -1,0 +1,1 @@
+DB_Virtual package was originally developed by myself and Ian Eure while we worked at eNotes.com to distribute load across multiple MySQL servers without having to rewrite a bunch of our calling code. It is currently not maintained.
